@@ -26,14 +26,14 @@ static void writing_result(int fd, char *nth, char *nb)
     write(fd, "\n", 1);
 }
 
-void write_result(uint nth, char *nb, uint *settings)
+void write_result(uint nth, char *nb, set_t *settings)
 {
     int fd;
     char *n_th = NULL;
 
-    if (!settings[SILENT])
+    if (!settings->silent)
         printf("  F(%u)\t%c=\t%s\n", nth, nth > 99 ? '\0' : '\t', nb);
-    if (settings[STORE]) {
+    if (settings->store) {
         n_th = my_utoa(nth);
         fd = open("calculations_fib.txt", O_CREAT | O_WRONLY);
         fchmod(fd, 0666);
@@ -41,5 +41,5 @@ void write_result(uint nth, char *nb, uint *settings)
         close(fd);
         free(n_th);
     }
-    usleep(settings[SLOW]);
+    usleep(settings->slow);
 }

@@ -13,7 +13,6 @@ static void help2(void)
     printf("NUM\033[0m\n\t\tCompute"
     " the sequence until the \033[4mNUM\033[0mth Fibonacci number.\n\n\t"
     "\033[1m-E\033[0m \033[4mNUM\033[0m, \033[1m--end\033[0m=\033[4mNUM\033[0m"
-    "\n\t\t\033[1mNOT FULLY IMPLEMENTED YET\033[0m"
     "\n\t\tCompute the sequence while the result is inferior to \033[4mNUM"
     "\033[0m.\n\n\t\033[1m-F\033[0m \033[4mNUM\033[0m, \033[1m--find\033[0m="
     "\033[4mNUM\033[0m\n\t\tFind and print the \033[4mNUM\033[0mth Fibonacci "

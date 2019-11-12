@@ -32,26 +32,21 @@ static int istrcmp(char *number, char *limit)
     return (0);
 }
 
-int end_exceeded(char *number, uint limit)
+int end_exceeded(char *number, char *limit)
 {
-    char *nlimit = NULL;
-
     if (!limit)
         return (FALSE);
-    nlimit = my_utoa(limit);
-    if (istrcmp(number, nlimit) >= 0) {
-        free(nlimit);
+    if (istrcmp(number, limit) >= 0)
         return (TRUE);
-    }
-    free(nlimit);
     return (FALSE);
 }
 
-int digits_ok(uint *settings, char *nb)
+int digits_ok(set_t *settings, char *nb)
 {
+    settings = settings;
     if (!nb)
         return (TRUE);
-    if (my_strlen(nb) >= settings[DIGITS])
+    if (my_strlen(nb) >= settings->digits)
         return (FALSE);
     return (TRUE);
 }

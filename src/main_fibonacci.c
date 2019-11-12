@@ -58,7 +58,7 @@ static char *fibonacci(char **n1, char **n2, char *n3)
     return (n3);
 }
 
-static void fibonacci_loop(uint *settings)
+static void fibonacci_loop(set_t *settings)
 {
     char *n3 = my_strdup("0\0");
     char *n2 = my_strdup("1\0");
@@ -66,9 +66,9 @@ static void fibonacci_loop(uint *settings)
 
     write_result(0, n1, settings);
     write_result(1, n2, settings);
-    for (uint nth = 2; nth <= settings[UNTIL]; nth++) {
+    for (uint nth = 2; nth <= settings->until; nth++) {
         n3 = fibonacci(&n1, &n2, n3);
-        if (!digits_ok(settings, n3) || end_exceeded(n3, settings[END]))
+        if (!digits_ok(settings, n3) || end_exceeded(n3, settings->end))
             break;
         write_result(nth, n3, settings);
     }
@@ -94,7 +94,7 @@ static void fibonacci_find(uint max)
 
 int main(int ac, char **av)
 {
-    uint *settings;
+    set_t *settings;
 
     if (ac == 2 &&
         (my_str_isequal(av[1], "-h") || my_str_isequal(av[1], "--help")))
@@ -102,12 +102,14 @@ int main(int ac, char **av)
     settings = setup();
     if (get_settings(ac, av, settings) == FAILURE)
         return (FAILURE);
-    if (settings[FIND] != 0)
-        fibonacci_find(settings[FIND]);
+    if (settings->find != 0)
+        fibonacci_find(settings->find);
     else {
         remove("calculations_fib.txt");
         fibonacci_loop(settings);
     }
+    if (settings->end)
+        free(settings->end);
     free(settings);
     return (0);
 }

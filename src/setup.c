@@ -17,32 +17,32 @@ static uint limit_slow(int slow)
     return (slow);
 }
 
-static char *do_switch(char c, char *optarg, uint **settings)
+static char *do_switch(char c, char *optarg, set_t **settings)
 {
     switch (c) {
     case ODIGITS :
-        (*settings)[DIGITS] = adjust(optarg, my_atou(optarg));
+        (*settings)->digits = adjust(optarg, my_atou(optarg));
         break;
     case OEND :
-        (*settings)[END] = adjust(optarg, my_atou(optarg));
+        (*settings)->end = my_strdup(optarg);
         break;
     case OFIND :
-        (*settings)[FIND] = my_atou(optarg);
+        (*settings)->find = my_atou(optarg);
         break;
     case OSILENT :
-        (*settings)[SILENT] = 1;
+        (*settings)->silent = 1;
         break;
     case OSLOW :
-        (*settings)[SLOW] = limit_slow(my_atou(optarg) * 1000);
+        (*settings)->slow = limit_slow(my_atou(optarg) * 1000);
         break;
     case OSTART :
-        (*settings)[START] = my_atou(optarg);
+        (*settings)->start = my_atou(optarg);
         break;
     case OSTORE :
-        (*settings)[STORE] = 1;
+        (*settings)->store = 1;
         break;
     case OUNTIL :
-        (*settings)[UNTIL] = adjust(optarg, my_atou(optarg));
+        (*settings)->until = adjust(optarg, my_atou(optarg));
         break;
     case '?' :
         my_putstr("Try './fibonacci --help' for more information.\n");
@@ -88,7 +88,7 @@ static void set_longopts(struct option **longopts)
     (*longopts)[7].val = OSTORE;
 }
 
-int get_settings(int ac, char **av, uint *settings)
+int get_settings(int ac, char **av, set_t *settings)
 {
     struct option *longopts = malloc(sizeof(struct option) * 8);
 
@@ -105,17 +105,17 @@ int get_settings(int ac, char **av, uint *settings)
     return (SUCCESS);
 }
 
-uint *setup(void)
+set_t *setup(void)
 {
-    uint *settings = malloc(sizeof(unsigned int) * 8);
+    set_t *settings = malloc(sizeof(set_t));
 
-    settings[START] = 0;
-    settings[END] = 0;
-    settings[FIND] = 0;
-    settings[DIGITS] = MAX;
-    settings[SLOW] = 0;
-    settings[UNTIL] = MAX;
-    settings[SILENT] = 0;
-    settings[STORE] = 0;
+    settings->start = 0;
+    settings->end = NULL;
+    settings->find = 0;
+    settings->digits = MAX;
+    settings->slow = 0;
+    settings->until = MAX;
+    settings->silent = 0;
+    settings->store = 0;
     return (settings);
 }
