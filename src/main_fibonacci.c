@@ -111,5 +111,5 @@ int main(int ac, char **av)
     if (settings->end)
         free(settings->end);
     free(settings);
-    return (0);
+    return (SUCCESS);
 }

@@ -97,6 +97,8 @@ int get_settings(int ac, char **av, set_t *settings)
         c = getopt_long(ac, av, "d:u:E:F:S:", longopts, NULL);
         if (do_switch(c, optarg, &settings) == NULL) {
             free(longopts);
+            if (settings->end)
+                free(settings->end);
             free(settings);
             return (FAILURE);
         }

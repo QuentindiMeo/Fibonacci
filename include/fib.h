@@ -41,7 +41,6 @@ typedef enum {
 
 typedef enum {
     MAX = 2147483647,
-    ALED = 0,
 } default_t;
 
 int end_exceeded(char *number, char *limit);

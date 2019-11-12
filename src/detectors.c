@@ -43,7 +43,6 @@ int end_exceeded(char *number, char *limit)
 
 int digits_ok(set_t *settings, char *nb)
 {
-    settings = settings;
     if (!nb)
         return (TRUE);
     if (my_strlen(nb) >= settings->digits)
