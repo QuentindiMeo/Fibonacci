@@ -14,5 +14,5 @@ This way, you can navigate through the calculations you wanted to get.<br>
 Have fun!<br>
 <br>
 <br>
-<b>Work still in progress, -S (--start) and -E (--end) have yet to be fully implemented</b><br>
+<b>Work still in progress, -S (--start) has yet to be implemented</b><br>
 <i>If you want new features to be included, feel free to let me know!</i>
