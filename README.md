@@ -23,6 +23,7 @@ With or without parameters, you may enjoy reading the first values, find one, or
 
 ## :abacus: Usage
 
+&#xa0;  
 &nbsp;&nbsp; :checkered_flag:&nbsp; **Build/Compilation & Launch**
 
 ``` bash
@@ -35,25 +36,25 @@ make
 &nbsp;&nbsp; :hammer_and_wrench:&nbsp; **Options**
 
 ``` bash
--d, --digits <int>  Compute the sequence until the result is *n* digits long.
--u, --until  <int>  Compute the sequence until the *n*th Fibonacci number.
--e, --end    <int>  Compute the sequence as long as the result is inferior to *n*.
--F, --find   <int>  Find and print F(*n*). Denies all other parameters.
--S, --start  <int>  Start computing the sequence at *n* using the storage file (see --store).
---slow       <int>  Slow down the program by waiting *n* milliseconds after every iteration. (max 100,000)
+-d, --digits <int>  Compute the sequence until the result is *n* digits long
+-u, --until  <int>  Compute the sequence until the *n*th Fibonacci number
+-e, --end    <int>  Compute the sequence until the result is superior or equal to *n*
+-F, --find   <int>  Find and print only F(*n*). Denies all other parameters
+-S, --start  <int>  Start computing the sequence at *n* using the storage file (see --store)
+--slow       <int>  Slow down the program by waiting *n* milliseconds after every iteration (max 100,000)
 
---silent            Make it so that the program doesn't display what it finds.
+--silent            Make it so that the program does not print what it finds.
 --store             Store the results in a file (calculations_fib.txt).
 
--h, --help              Display this help and exit
+-h, --help          Display this help and exit
 ```
 
 &#xa0;
 
 &nbsp;&nbsp; :test_tube:&nbsp; **General**
 
-The format for printing calculations is `$>  F(n)    =    value`.
-The exit status of the program is 0 if everything went well, 84 if an invalid argument was detected.
+The format for printing calculations is `$>  F(n)    =    value`.  
+The exit status of the program is 0 if everything went well, 84 if an invalid argument was detected.  
 The storage file ([calculations_fib.txt](./calculations_fib.txt)) was designed to make you able to inspect your calculations.
 
 &#xa0;
