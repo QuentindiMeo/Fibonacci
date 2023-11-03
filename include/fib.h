@@ -8,35 +8,26 @@
 #ifndef FIBONACCI_H_
 #define FIBONACCI_H_
 
-struct set_s {
+typedef struct set_s {
     unsigned int start;
     char *end;
     unsigned int find;
     unsigned int digits;
     unsigned int slow;
     unsigned int until;
-    unsigned int silent;    
+    unsigned int silent;
     unsigned int store;
-};
-typedef struct set_s set_t;
+} set_t;
 
 typedef enum {
-    START = 0,
-    END = 1,
-    FIND = 2,
-    DIGITS = 3,
-    SLOW = 4,
-    UNTIL = 5,
-    SILENT = 6,
-    STORE = 7,
-    OSTART = 'S',
-    OEND = 'E',
-    OFIND = 'F',
-    ODIGITS = 'd',
-    OSLOW = 's',
-    OUNTIL = 'u',
-    OSILENT = '-',
-    OSTORE = 'D',
+    START  = 0, OSTART = 'S',
+    END    = 1, OEND = 'E',
+    FIND   = 2, OFIND = 'F',
+    DIGITS = 3, ODIGITS = 'd',
+    SLOW   = 4, OSLOW = 's',
+    UNTIL  = 5, OUNTIL = 'u',
+    SILENT = 6, OSILENT = '-',
+    STORE  = 7, OSTORE = 'D',
 } settings_id_t;
 
 typedef enum {
