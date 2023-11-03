@@ -12,21 +12,55 @@
     <img alt="GitHub repository size" src="https://img.shields.io/github/repo-size/QuentindiMeo/Fibonacci?color=blue&logo=frontify" />
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/QuentindiMeo/Fibonacci?color=green&logo=target" />
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/QuentindiMeo/Fibonacci?color=red&logo=stackedit" />
-    <img alt="Lines of code" src="https://tokei.rs/b1/github/QuentindiMeo/Fibonacci?category=lines" />
+    <img alt="Lines of code" src="https://tokei.rs/b1/github/QuentindiMeo/Fibonacci?category=code" />
 </div>
 &#xa0;
 
-**Options**: [-dhuF] [--digits, --find, --help, --silent, --slow, --store, --until]  
+## :memo: Description
 
-This C program computes the Fibonacci sequence from 0 through infinity.  
-With or without parameters, you may enjoy reading the first values, find one, or simply unleash its computing power.  
-Discover all of its features and options by typing './fibonacci --help'.  
-This Fibonacci sequence computer can print its results and store them in a file named "calculations_fib.txt".  
-This way, you can navigate through the calculations you wanted to get.
+This C program computes the Fibonacci sequence from 0 to infinity.  
+With or without parameters, you may enjoy reading the first values, find one, or simply unleash its computing power.
 
-Have fun!
+## :abacus: Usage
+
+&nbsp;&nbsp; :checkered_flag:&nbsp; **Build/Compilation & Launch**
+
+``` bash
+make
+./fibonacci [OPTIONS]
+```
 
 &#xa0;
 
-**Work still in progress: -S (--start) has yet to be implemented**  
-*If you want new features to be included, feel free to let me know!*
+&nbsp;&nbsp; :hammer_and_wrench:&nbsp; **Options**
+
+``` bash
+-d, --digits <int>  Compute the sequence until the result is *n* digits long.
+-u, --until  <int>  Compute the sequence until the *n*th Fibonacci number.
+-e, --end    <int>  Compute the sequence as long as the result is inferior to *n*.
+-F, --find   <int>  Find and print F(*n*). Denies all other parameters.
+-S, --start  <int>  Start computing the sequence at *n* using the storage file (see --store).
+--slow       <int>  Slow down the program by waiting *n* milliseconds after every iteration. (max 100,000)
+
+--silent            Make it so that the program doesn't display what it finds.
+--store             Store the results in a file (calculations_fib.txt).
+
+-h, --help              Display this help and exit
+```
+
+&#xa0;
+
+&nbsp;&nbsp; :test_tube:&nbsp; **General**
+
+The format for printing calculations is `$>  F(n)    =    value`.
+The exit status of the program is 0 if everything went well, 84 if an invalid argument was detected.
+The storage file ([calculations_fib.txt](./calculations_fib.txt)) was designed to make you able to inspect your calculations.
+
+&#xa0;
+
+**Work still in progress: -S (--start) has yet to be implemented.**  
+*If you want new features to be included or found a malfunction, feel free to let me know by opening an issue.*
+
+&#xa0;
+
+[Back to top](#top)
