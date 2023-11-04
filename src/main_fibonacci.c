@@ -13,12 +13,9 @@
 
 static void free3(char *s1, char *s2, char *s3)
 {
-    if (s1)
-        free(s1);
-    if (s2)
-        free(s2);
-    if (s3)
-        free(s3);
+    if (s1) free(s1);
+    if (s2) free(s2);
+    if (s3) free(s3);
 }
 
 static char *addup(char *s2, char *n1)
@@ -29,8 +26,7 @@ static char *addup(char *s2, char *n1)
     char carry = 0;
     uint j = 0;
 
-    for (uint k = 0; k != my_strlen(n2) + 2; k++)
-        add[k] = 0;
+    for (uint k = 0; k != my_strlen(n2) + 2; k++) add[k] = 0;
     for (uint i = 0; n2[i]; i++) {
         c = ctoi(n2[i]) + (n1[i] ? ctoi(n1[i]) : 0) + carry;
         carry = (c > 9) ? 1 : 0;
@@ -46,19 +42,16 @@ static char *addup(char *s2, char *n1)
 
 static char *fibonacci(char **n1, char **n2, char *n3)
 {
-    if (n3 != NULL)
-        free(n3);
+    if ( (n3) != NULL) free(n3);
     n3 = addup(*n2, *n1);
-    if ((*n1) != NULL)
-        free((*n1));
+    if ((*n1) != NULL) free((*n1));
     (*n1) = my_strdup(*n2);
-    if ((*n2) != NULL)
-        free((*n2));
+    if ((*n2) != NULL) free((*n2));
     (*n2) = my_strdup(my_revstr(n3));
     return (n3);
 }
 
-static void fibonacci_loop(set_t *settings)
+static void fib_loop(set_t *settings)
 {
     char *n3 = my_strdup("0\0");
     char *n2 = my_strdup("1\0");
@@ -76,14 +69,14 @@ static void fibonacci_loop(set_t *settings)
     printf("Calculations done.\n");
 }
 
-static void fibonacci_find(uint max)
+static void fib_find(set_t *settings)
 {
+    uint max = settings->find;
     char *n3 = my_strdup("0\0");
     char *n2 = my_strdup("1\0");
     char *n1 = my_strdup("0\0");
 
-    if (max >= 7000)
-        printf("This may take a while...\n");
+    if (max >= 7000) printf("This may take a while...\n");
     for (uint nth = 2; nth < max; nth++)
         n3 = fibonacci(&n1, &n2, n3);
     n3 = fibonacci(&n1, &n2, n3);
@@ -98,18 +91,19 @@ int main(int ac, char **av)
 
     if (ac == 2 &&
         (my_str_isequal(av[1], "-h") || my_str_isequal(av[1], "--help")))
-        return (help());
+            return (help());
     settings = setup();
-    if (get_settings(ac, av, settings) == FAILURE)
-        return (FAILURE);
-    if (settings->find != 0)
-        fibonacci_find(settings->find);
-    else {
-        remove("calculations_fib.txt");
-        fibonacci_loop(settings);
+    if (get_settings(ac, av, settings) == FAILURE) return (FAILURE);
+    if (settings->turbo) {
+        fib_turbo(settings);
+    } else if (settings->find != 0) {
+        fib_find(settings);
+    } else {
+        if (settings->store)
+            remove("calculations_fib.txt");
+        fib_loop(settings);
     }
-    if (settings->end)
-        free(settings->end);
+    if (settings->end) free(settings->end);
     free(settings);
     return (SUCCESS);
 }

@@ -5,12 +5,13 @@
 ## Makefile
 ##
 
-SRC	=	src/help.c		\
-		src/detectors.c		\
-		src/writing.c		\
-		src/reading.c		\
-		src/setup.c		\
-		src/main_fibonacci.c	\
+SRC	=	src/help.c				\
+		src/turbo.c				\
+		src/detectors.c			\
+		src/writing.c			\
+		src/reading.c			\
+		src/setup.c				\
+		src/main_fibonacci.c
 
 OBJ	=	$(SRC:.c=.o)
 

@@ -23,6 +23,7 @@ typedef enum {
 
 typedef	unsigned int uint;
 typedef	unsigned char uchar;
+typedef	unsigned long ulong;
 
 unsigned short my_putchar(char const c);
 unsigned short my_putchar_err(char const c);

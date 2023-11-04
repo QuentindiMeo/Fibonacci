@@ -10,13 +10,15 @@
 
 typedef struct set_s {
     unsigned int start;
-    char *end;
+    char *       end;
     unsigned int find;
     unsigned int digits;
     unsigned int slow;
     unsigned int until;
     unsigned int silent;
     unsigned int store;
+    unsigned int turbo;
+    unsigned int precision;
 } set_t;
 
 typedef enum {
@@ -28,6 +30,8 @@ typedef enum {
     UNTIL  = 5, OUNTIL = 'u',
     SILENT = 6, OSILENT = '-',
     STORE  = 7, OSTORE = 'D',
+    TURBO  = 8, OTURBO = 't',
+    PRECI  = 9, OPRECI = 'p',
 } settings_id_t;
 
 typedef enum {

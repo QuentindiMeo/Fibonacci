@@ -23,7 +23,6 @@ With or without parameters, you may enjoy reading the first values, find one, or
 
 ## :abacus: Usage
 
-&#xa0;  
 &nbsp;&nbsp; :checkered_flag:&nbsp; **Build/Compilation & Launch**
 
 ``` bash
@@ -41,10 +40,15 @@ make
 -e, --end    <int>  Compute the sequence until the result is superior or equal to *n*
 -F, --find   <int>  Find and print only F(*n*). Denies all other parameters
 -S, --start  <int>  Start computing the sequence at *n* using the storage file (see --store)
---slow       <int>  Slow down the program by waiting *n* milliseconds after every iteration (max 100,000)
+--slow       <int>  Slow down the program by waiting *n* milliseconds after every iteration (def: 0, max: 100,000)
 
---silent            Make it so that the program does not print what it finds.
---store             Store the results in a file (calculations_fib.txt).
+--silent            Make the program not print what it finds. (def: false)
+--store             Store the results in a file (calculations_fib.txt). (def: false)
+
+--turbo             Compute the sequence using a long instead of a string (imperfect accuracy).
+                    you will get a result in scientific notation. (def: false)
+--precision  <int>  Set the precision of the result. Accuracy and computation time increase with precision.
+                    (only for --turbo) (def: 15, max 17)
 
 -h, --help          Display this help and exit
 ```
