@@ -3,14 +3,14 @@
 </div>
 
 <div align="center">
-    <img alt="Language" src="https://img.shields.io/badge/language-C-blue?logo=c" />
+    <img alt="Language" src="https://img.shields.io/badge/language-gray?logo=c" />
     <img alt="Compilation" src="https://img.shields.io/badge/compilation-via_Makefile-blue" />
     <img alt="Development status" src="https://img.shields.io/badge/development-interrupted-red?logo=windows-terminal" />
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/QuentindiMeo/Fibonacci?color=blueviolet&logo=clarifai" />
 </div>
 <div align="center">
     <img alt="GitHub repository size" src="https://img.shields.io/github/repo-size/QuentindiMeo/Fibonacci?color=blue&logo=frontify" />
-    <img alt="GitHub issues" src="https://img.shields.io/github/issues/QuentindiMeo/Fibonacci?color=green&logo=target" />
+    <img alt="GitHub issues" src="https://img.shields.io/github/issues/QuentindiMeo/Fibonacci?color=forestgreen&logo=target" />
     <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/QuentindiMeo/Fibonacci?color=red&logo=stackedit" />
     <img alt="Lines of code" src="https://tokei.rs/b1/github/QuentindiMeo/Fibonacci?category=code" />
 </div>
@@ -21,20 +21,21 @@
 This C program computes the Fibonacci sequence from 0 to infinity.  
 With or without parameters, you may enjoy reading the first values, find one, or simply unleash its computing power.
 
+&#xa0;
+
 ## :abacus: Usage
 
 &nbsp;&nbsp; :checkered_flag:&nbsp; **Build/Compilation & Launch**
 
 ``` bash
-make
-./fibonacci [OPTIONS]
+make && ./fibonacci [OPTIONS]
 ```
 
 &#xa0;
 
 &nbsp;&nbsp; :hammer_and_wrench:&nbsp; **Options**
 
-``` bash
+``` txt
 -d, --digits <int>  Compute the sequence until the result is *n* digits long
 -u, --until  <int>  Compute the sequence until the *n*th Fibonacci number
 -e, --end    <int>  Compute the sequence until the result is superior or equal to *n*
